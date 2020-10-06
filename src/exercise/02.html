@@ -4,10 +4,8 @@
 <body>
   <div id="root"></div>
 
-  <!-- 💣 remove this line
   <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
-  💣 remove this line -->
 
   <script type="module">
     const rootElement = document.getElementById('root')
@@ -21,8 +19,31 @@
     // This is similar to ReactDOM.render
     rootElement.append(element)
 
+    // Exercise
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
+    const elementProps = {
+      className: 'container',
+      children: 'Hello World',
+    }
+    const elementType = 'div'
+    const reactElement = React.createElement(elementType, elementProps)
+    ReactDOM.render(reactElement, rootElement)
+
+    // Extra Credit 1
+    // Either one of the below implementations are fine
+    const helloSpanElement = React.createElement('span', null, 'Hello')
+    const worldSpanElement = React.createElement('span', {
+      children: 'World',
+    })
+
+    const elementProps = {
+      className: 'container',
+      children: [helloSpanElement, ' ', worldSpanElement],
+    }
+    const elementType = 'div'
+    const reactElement = React.createElement(elementType, elementProps)
+    ReactDOM.render(reactElement, rootElement)
   </script>
 </body>
